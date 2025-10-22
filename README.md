@@ -1,5 +1,4 @@
-# Authenticated Encryption from Packed Secret Sharing  
-### One-Pass Lightweight Design with Provable Security
+# Authenticated Encryption from Packed Secret Sharing: One-Pass Lightweight Design with Provable Security
 
 **Author:** Kamel Mohamed Faraoun  
 **Affiliation:** Computer Science Department, EEDIS Laboratory,  
