@@ -51,8 +51,8 @@ The main executable (`main.rs`) provides several routines accessible via a menu-
 
 ### Build and Execute
 ```bash
-git clone https://github.com/your-repo/aes-benchmarks.git
-cd aes-benchmarks
+git clone https://github.com/kamel78/PSSCrypt.git
+cd psscrypt
 cargo run --release
 ```
 Running in `--release` mode is **highly recommended** for accurate timing measurements.
