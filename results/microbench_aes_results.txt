@@ -1,6 +1,0 @@
-   Average encryption time (AES128): 306.34 ns 
-   Average encryption time (AES256): 409.02 ns 
-   Delta cost : 33.52 % 
-   Average decryption time (AES128): 406.77 ns 
-   Average decryption time (AES256): 557.62 ns 
-   Delta cost : 37.08 % 
