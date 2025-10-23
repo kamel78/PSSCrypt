@@ -1,0 +1,143 @@
+=== AES-GCM-256 Throughput Benchmark (1GB) ===
+
+ Encryption (1GB):
+   Min:     3059651300 ns (274.17 Mb/s)
+   Median:  3018766300 ns (277.88 Mb/s)
+   Average: 3026062850 ns (277.21 Mb/s)
+   P95:     3016125300 ns (278.13 Mb/s)
+   P99:     3016125300 ns (278.13 Mb/s)
+   Max:     3016125300 ns (278.13 Mb/s)
+
+ Decryption (1GB):
+   Min:     3023807000 ns (277.42 Mb/s)
+   Median:  3019365000 ns (277.83 Mb/s)
+   Average: 3020304200 ns (277.74 Mb/s)
+   P95:     3018367800 ns (277.92 Mb/s)
+   P99:     3018367800 ns (277.92 Mb/s)
+   Max:     3018367800 ns (277.92 Mb/s)
+
+=== AES-CCM-256 Throughput Benchmark (1Gb) ===
+
+ Encryption (1GB):
+   Min:     4911228000 ns (170.80 Mb/s)
+   Median:  4874321200 ns (172.10 Mb/s)
+   Average: 4882322580 ns (171.82 Mb/s)
+   P95:     4866084900 ns (172.39 Mb/s)
+   P99:     4866084900 ns (172.39 Mb/s)
+   Max:     4866084900 ns (172.39 Mb/s)
+
+ Decryption (1GB):
+   Min:     4871645900 ns (172.19 Mb/s)
+   Median:  4867101100 ns (172.35 Mb/s)
+   Average: 4867928360 ns (172.32 Mb/s)
+   P95:     4866496900 ns (172.37 Mb/s)
+   P99:     4866496900 ns (172.37 Mb/s)
+   Max:     4866496900 ns (172.37 Mb/s)
+
+=== AES-OCB-256 Throughput Benchmark (10MB) ===
+
+ Encryption (10MB):
+   Min:     2430983600 ns (345.07 Mb/s)
+   Median:  2428380100 ns (345.44 Mb/s)
+   Average: 2428689170 ns (345.40 Mb/s)
+   P95:     2427651400 ns (345.54 Mb/s)
+   P99:     2427651400 ns (345.54 Mb/s)
+   Max:     2427651400 ns (345.54 Mb/s)
+
+ Decryption (10MB):
+   Min:     3434630900 ns (244.24 Mb/s)
+   Median:  3431785500 ns (244.44 Mb/s)
+   Average: 3432032270 ns (244.42 Mb/s)
+   P95:     3429576900 ns (244.60 Mb/s)
+   P99:     3429576900 ns (244.60 Mb/s)
+   Max:     3429576900 ns (244.60 Mb/s)
+
+=== PSS-256 Throughput Benchmark (1GB) ===
+
+ Encryption (1GB):
+   Min:     1670983400 ns (502.02 Mb/s)
+   Median:  1670158000 ns (502.26 Mb/s)
+   Average: 1670340880 ns (502.21 Mb/s)
+   P95:     1669418400 ns (502.49 Mb/s)
+   P99:     1669418400 ns (502.49 Mb/s)
+   Max:     1669418400 ns (502.49 Mb/s)
+
+ Decryption (1GB):
+   Min:     1677150700 ns (489.17 Mb/s)
+   Median:  1676361400 ns (492.41 Mb/s)
+   Average: 1676353150 ns (495.41 Mb/s)
+   P95:     1675740100 ns (499.59 Mb/s)
+   P99:     1675740100 ns (500.59 Mb/s)
+   Max:     1675740100 ns (500.59 Mb/s)
+
+=== AES-GCM-256 Latency Benchmark (10KB) ===
+
+ Encryption (10KB) Latency:
+   Min:     291.10 µs
+   Median:  293.90 µs
+   Average: 294.16 µs
+   P95:     296.30 µs
+   P99:     313.20 µs
+   Max:     347.10 µs
+
+ Decryption (10KB) Latency:
+   Min:     291.80 µs
+   Median:  294.30 µs
+   Average: 294.50 µs
+   P95:     296.20 µs
+   P99:     305.60 µs
+   Max:     333.60 µs
+
+=== AES-CCM-256 Latency Benchmark (10KB) ===
+
+ Encryption (10KB) Latency:
+   Min:     474.00 µs
+   Median:  474.80 µs
+   Average: 476.86 µs
+   P95:     477.90 µs
+   P99:     496.20 µs
+   Max:     988.90 µs
+
+ Decryption (10KB) Latency:
+   Min:     473.40 µs
+   Median:  474.60 µs
+   Average: 475.71 µs
+   P95:     477.40 µs
+   P99:     490.50 µs
+   Max:     725.60 µs
+
+=== AES-OCB-256 Latency Benchmark (10KB) ===
+
+ Encryption (10KB) Latency:
+   Min:     237.00 µs
+   Median:  238.90 µs
+   Average: 238.78 µs
+   P95:     240.60 µs
+   P99:     251.70 µs
+   Max:     272.30 µs
+
+ Decryption (10KB) Latency:
+   Min:     334.80 µs
+   Median:  337.00 µs
+   Average: 337.41 µs
+   P95:     338.90 µs
+   P99:     360.40 µs
+   Max:     373.80 µs
+
+=== PSS-256 Latency Benchmark (10KB) ===
+
+ Encryption (10KB) Latency:
+   Min:     165.30 µs
+   Median:  165.60 µs
+   Average: 166.39 µs
+   P95:     168.10 µs
+   P99:     169.60 µs
+   Max:     186.80 µs
+
+ Decryption (10KB) Latency:
+   Min:     164.20 µs
+   Median:  165.00 µs
+   Average: 165.45 µs
+   P95:     167.20 µs
+   P99:     169.90 µs
+   Max:     187.70 µs
