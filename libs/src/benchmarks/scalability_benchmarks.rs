@@ -2,8 +2,7 @@ use std::time::Instant;
 
 use rand::Rng;
 
-use crate::{ ccm::aes_ccm::AesCcm, ccm::aes_ccm_256::AesCcm256, gcm::aes_gcm::AesGcm, gcm::aes_gcm_256::AesGcm256, 
-             ocb::aes_ocb::AesOcb, ocb::aes_ocb_256::AesOcb256, aes_ciphers::CipherName, pss::psscrypt::PSSCrypt};
+use crate::{ additional_ae::{sparkle_ae::Schwaemm128, sparkle256_ae::Schwaemm256}, aes_ciphers::CipherName, ccm::{aes_ccm::AesCcm, aes_ccm_256::AesCcm256}, gcm::{aes_gcm::AesGcm, aes_gcm_256::AesGcm256}, ocb::{aes_ocb::AesOcb, aes_ocb_256::AesOcb256}, pss::psscrypt::PSSCrypt};
 
 //   Benchmaking time scalability of the proposed approach/AES-GCM/AES-CCM/AES-OCB with respect to security level (128 vs .256)             
 
@@ -176,6 +175,59 @@ pub fn bench_aes_pss_scaling() {
             let _ = pss256.encrypt();
             let duration = start.elapsed();
             lat256.push(duration.as_nanos());
+        }
+        let avg256: u128 = lat256.iter().sum::<u128>() / iterations as u128;
+
+        // Relative overhead Δrel = (T256 - T128)/T128 * 100
+        let delta_rel = ((avg256 as f64 - avg128 as f64) / avg128 as f64) * 100.0;
+        println!("{:>8}, {:>10.2}, {:>10.2}, {:>6.2}",size, avg128 as f64 / 1000.0, avg256 as f64 / 1000.0, delta_rel);
+    }
+}
+
+pub fn bench_sparkle_scaling() {
+    let nonce = [1u8, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12,13,14,15,16];
+    let aad = b"Additional authenticated data";
+    let iterations = 500;
+
+    // Message sizes in bytes (from 128B to 64KB)
+    let sizes = [128, 512, 1024, 4096, 16384, 65536];
+
+    println!("\n=== Sparkle Scaling Benchmark ===");
+    println!("Size (B), Sparkle128_avg_µs, Sparkle256_avg_µs, Δrel(%)");
+    for &size in &sizes {
+        let plaintext = vec![0x42u8; size];        
+        // AES-GCM-128
+        let key128 = rand::rng().random::<u128>(); 
+        let spar128 = Schwaemm128::new(key128.to_be_bytes());
+        let mut lat128 = Vec::with_capacity(iterations);
+        for _ in 0..iterations {
+            let start = Instant::now();
+            let ciphertext = spar128.encrypt(&nonce, &plaintext, aad);
+            let duration = start.elapsed();
+            lat128.push(duration.as_nanos());
+            std::hint::black_box(&ciphertext);
+        }
+        let avg128: u128 = lat128.iter().sum::<u128>() / iterations as u128;
+
+        // AES-GCM-256
+        let key256_1 = rand::rng().random::<u128>(); 
+        let key256_2 = rand::rng().random::<u128>(); 
+        
+        pub fn two_u128_to_be_bytes(x: u128, y: u128) -> [u8; 32] {
+                        let mut out = [0u8; 32];
+                        out[..16].copy_from_slice(&x.to_be_bytes());
+                        out[16..].copy_from_slice(&y.to_be_bytes());
+                        out
+                    }
+        let spar256 = Schwaemm256::new(two_u128_to_be_bytes(key256_1,key256_2));
+
+        let mut lat256 = Vec::with_capacity(iterations);
+        for _ in 0..iterations {
+            let start = Instant::now();
+            let ciphertext = spar256.encrypt(&nonce, &plaintext, aad);
+            let duration = start.elapsed();
+            lat256.push(duration.as_nanos());
+            std::hint::black_box(&ciphertext);
         }
         let avg256: u128 = lat256.iter().sum::<u128>() / iterations as u128;
 

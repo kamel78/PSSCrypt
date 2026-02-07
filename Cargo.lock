@@ -302,6 +302,7 @@ name = "timebench"
 version = "0.1.0"
 dependencies = [
  "libraries",
+ "sha2",
 ]
 
 [[package]]

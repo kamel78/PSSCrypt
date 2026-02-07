@@ -2,7 +2,7 @@ use std::{arch::x86_64::_mm_xor_si128, io};
 
 use rand::{rngs::StdRng, Rng, SeedableRng};
 use crate::{gcm::aes_gcm::as_m128i, aes_ciphers::CipherName, pss::psscrypt::PSSCrypt};
-pub enum TestParam { KEY,IV }
+  pub enum TestParam { KEY,IV }
 
 
 //  Benchmarking  sensivity to bit alteration of recovered authentication tag scheme with respect to ciphertext alterations
